@@ -1,0 +1,99 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    background: linear-gradient(
+        to right,
+     rgb(29, 163, 197) 50%,
+    rgb(255, 255, 255) 50%
+    ) fixed;
+}
+
+h1 {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+    margin-right: 19px;
+    margin-top: 30px;
+    font-size: 50px;
+}
+
+h1::before {
+    content: "Coin";
+    color: white;
+    margin-right: 29px;
+}
+
+h1::after {
+    content: "Flip";
+    color: rgb(29, 163, 197);
+    
+}
+.circle {
+
+    background-color: white;
+    padding: 130px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    box-shadow: 15px 30px 35px  rgb(0, 0, 0);
+    border-radius: 10px;
+    -webkit-perspective: 300px;
+    perspective: 300px;
+}
+.coins{
+    height: 350px;
+    width: 350px;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    
+}
+
+.heads,.tails{
+    width: 490px;
+    height: 490px;
+    position:absolute;
+    top: 48%; /* Vertically center */
+    left: 50%; /* Horizontally center */
+    transform: translate(-50%, -50%); 
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+
+}
+
+
+.tails{
+    transform: rotateX(180deg);
+    
+}
+@keyframes spin-tails{
+    0%{
+        transform: rotateX(0);
+    }
+    100%{
+        transform: rotateX(1980deg);
+    }
+}
+@keyframes spin-heads{
+    0%{
+        transform: rotateX(0);
+    }
+    100%{
+        transform: rotateX(2160deg);
+    }
+}
+
+
+
+button {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 95%;
+    left: 50%;
+    padding: 2px 10px;
+}
