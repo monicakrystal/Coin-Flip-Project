@@ -9,9 +9,10 @@ body {
     background: linear-gradient(
         to right,
      rgb(29, 163, 197) 50%,
-    rgb(255, 255, 255) 50%
+    rgb(253, 246, 246) 50%
     ) fixed;
 }
+
 
 h1 {
     display: flex;
