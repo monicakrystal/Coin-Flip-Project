@@ -1,4 +1,3 @@
-// main.js file
 const flipButton = document.querySelector('#flip-Movement');
 const audioElement = new Audio('/audio/coinflip.mp3');
 const coinImage = document.querySelector('.coins img');
@@ -7,14 +6,15 @@ let coins = document.querySelector(".coins");
 let heads = 0;
 let tails = 0;
 
+
 function playSound() {
   audioElement.play();
 }
 
-flipButton.addEventListener("click", () => {
+flipButton.addEventListener("click", async () => {
   playSound();
 
-  fetch('http://localhost:8080/flipcoin')
+  await fetch('http://localhost:8080/flipcoin')
     .then(response => response.json())
     .then(data => {
       console.log(data.result);
@@ -33,11 +33,13 @@ flipButton.addEventListener("click", () => {
             coins.style.animation = "spin-heads 2s forwards";
           }, 100);
           heads++;
+  
         } else {
           setTimeout(function() {
             coins.style.animation = "spin-tails 2s forwards";
           }, 100);
           tails++;
+      
         }
       };
     })

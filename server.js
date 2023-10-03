@@ -1,4 +1,3 @@
-// Import the Express.js module
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
@@ -6,21 +5,9 @@ const app = express();
 const port = process.env.PORT || 8080;
 const cors = require('cors');
 
-app.use(express.static(path.join(__dirname, 'coinflip')));
-app.use('/audio', express.static(path.join(__dirname, 'coinflip', 'audio')));
-app.use('/images', express.static(path.join(__dirname, 'coinflip', 'images')));
+app.use(express.static('public'));
 
 // Define a route and a response
-app.get('/', (req, res) => {
-  // Read and send the HTML file
-  fs.readFile('index.html', 'utf8', (err, data) => {
-    if (err) {
-      res.status(500).send('Error reading the HTML file.');
-    } else {
-      res.send(data);
-    }
-  });
-});
 
 app.get('/flipcoin', (req, res) => {
   const result = Math.ceil(Math.random() * 2) === 1 ? 'heads' : 'tails';
